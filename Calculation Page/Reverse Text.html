@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h1>Enter Your Text For Reverse Text</h1>
+
+<input id="userinput" type="text" placeholder="enter items"><br>
+
+<button type="button" onclick="myFunction()" id="btn">Try it</button><br>
+
+<ul id="demo">
+
+</ul>
+
+<h1>Go To Other Pages</h1><br>
+<p>Click The Below Button To Go To Other Pages</p><br>
+<select class="custom-select" id="sampleSelect" required>
+    <option value="Addition.html">Addition</option>
+    <option value="Subtraction.html">Subtraction</option>
+    <option value="Multiplication.html">Multiplication</option>
+    <option value="Multiplication Table.html">Multiplication Table</option>
+    <option value="Division.html">Division</option>
+    <option value="Simple Interest.html">Simple Interest</option>
+    <option value="Largest Numbers.html">Largest Number Between 3 Numbers</option>
+    <option value="Square.html">Square</option>
+    <option value="Cubed.html">Cube</option>
+    <option>...</option>
+  </select>
+<script>
+  function myFunction() {
+  var s1 = document.getElementById("userinput").value;
+  var result = "";
+  var l = s1.length;
+  var i;
+  for (let i = l - 1; i >= 0; i--) {
+    result += s1.charAt(i);
+  }
+  document.getElementById("demo").innerHTML = result;
+  return false;
+  }
+
+  $("select").click(function() {
+  var open = $(this).data("isopen");
+  if(open) {
+    window.location.href = $(this).val()
+  }
+  //set isopen to opposite so next time when use clicked select box
+  //it wont trigger this event
+  $(this).data("isopen", !open);
+});
+  
+</script>
+
+</body>
+</html>

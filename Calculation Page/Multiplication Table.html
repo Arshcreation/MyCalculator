@@ -1,0 +1,73 @@
+<html>
+<head>
+<style>
+body {
+background: #F4F4F4;
+font-family: Arial;
+margin: 0;
+text-align: center;
+}
+</style>
+</head>
+<body>
+<table border="0" style="margin: 0 auto; width:500px">
+    <tr>
+        <td colspan="2"><h2>Enter A Number For It's Table</h2></td>
+    </tr>
+ 
+    <tr>
+        <td width="28%"></td>
+        <td><input type="number" onchange="printTable(this)"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><span id="mul"></span></td>
+    </tr>
+</table>
+
+<h1>Go To Other Pages</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<p>Click The Below Button To Go To Other Pages</p><br>
+<select class="custom-select" id="sampleSelect" required>
+    <option value="Addition.html">Addition</option>
+    <option value="Subtraction.html">Subtraction</option>
+    <option value="Multiplication.html">Multiplication</option>
+    <option value="Multiplication Table.html">Multiplication Table</option>
+    <option value="Division.html">Division</option>
+    <option value="Simple Interest.html">Simple Interest</option>
+    <option value="Largest Numbers.html">Largest Number Between 3 Numbers</option>
+    <option value="Square.html">Square</option>
+    <option value="Cubed.html">Cube</option>
+    <option>...</option>
+  </select>
+ 
+<script>
+function printTable(num) {
+    var input = num.value;
+    if(!isNaN(input)) {
+        var table="";
+        var number="";
+        for(i=1;i<=10;i++) {
+            number = input * i;
+            table +=  input + " x " + i + " = " + number + "<br/>";
+        }
+        document.getElementById("mul").innerHTML = table;
+    }
+    else {
+        document.getElementById("mul").innerHTML = "Please Enter a valid Number";
+    }
+}
+
+
+$("select").click(function() {
+  var open = $(this).data("isopen");
+  if(open) {
+    window.location.href = $(this).val()
+  }
+  //set isopen to opposite so next time when use clicked select box
+  //it wont trigger this event
+  $(this).data("isopen", !open);
+});
+
+</script>
+</body>
+</html>       

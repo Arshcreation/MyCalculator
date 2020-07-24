@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Square</title>
+  </head>
+<body>
+
+<h1>Enter Your Number for Cube</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" >
+
+</script>
+
+<form>
+First Number: <input type="number" id="fnum"><br><br>  
+<button id="btn1" type="button" onclick="AddCalc()">Add Me</button><br><br>
+Result: <input type="text" id="tot"><br><br>
+
+</form>
+
+<h1>Go To Other Pages</h1><br>
+<p>Click The Below Button To Go To Other Pages</p><br>
+<select class="custom-select" id="sampleSelect" required>
+    <option value="Addition.html">Addition</option>
+    <option value="Subtraction.html">Subtraction</option>
+    <option value="Multiplication.html">Multiplication</option>
+    <option value="Multiplication Table.html">Multiplication Table</option>
+    <option value="Division.html">Division</option>
+    <option value="Simple Interest.html">Simple Interest</option>
+    <option value="Largest Numbers.html">Largest Number Between 3 Numbers</option>
+    <option value="Square.html">Square</option>
+    <option value="Cubed.html">Cube</option>
+    <option>...</option>
+  </select>
+<script >
+function AddCalc() 
+{
+  var n1 = document.getElementById("fnum").value;
+  var total = Number(n1)**3;
+  document.getElementById("tot").value = total;
+  document.getElementById("fnum").value = "";
+  document.getElementById("lnum").value = "";
+  return false
+}
+
+$("select").click(function() {
+  var open = $(this).data("isopen");
+  if(open) {
+    window.location.href = $(this).val()
+  }
+  //set isopen to opposite so next time when use clicked select box
+  //it wont trigger this event
+  $(this).data("isopen", !open);
+});
+  
+  </script>  
+</body>
+</html>
